@@ -28,25 +28,23 @@ Caso dois horários possuem a mesma diferença máxima de temperatura, a que dev
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-
+int main() {
     int qtd;
     cin >> qtd;
 
-    double hrs, tmax, tmin, t;
-    int max = 0, res=0;
+    string hrs, res;
+    double tmax, tmin, max_diff = -1.0;
 
-    for (int i = 0; i < qtd; i++)
-    {
+    for (int i = 0; i < qtd; i++) {
         cin >> hrs >> tmax >> tmin;
-        t = tmax - tmin;
-        if (t > max)
-        {
-            res = t;
+        double diff = tmax - tmin;
+        if (diff > max_diff) {
+            max_diff = diff;
             res = hrs;
         }
     }
-    cout << res;
+    
+    cout << res << endl;
     return 0;
 }
+
